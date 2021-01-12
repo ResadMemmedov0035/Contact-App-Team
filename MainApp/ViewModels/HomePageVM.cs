@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using MainApp.Models;
+using MainApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,35 +10,13 @@ namespace MainApp.ViewModels
 {
     class HomePageVM : ViewModelBase
     {
-        private ObservableCollection<Contact> tempContacts;
+        private IStorage Storage;
 
-        public ObservableCollection<Contact> TempContacts { get => tempContacts; set => Set(ref tempContacts, value); }
+        public ObservableCollection<Contact> TempContacts => Storage.GetAll();
 
-        public HomePageVM()
+        public HomePageVM(IStorage storage)
         {
-            TempContacts = new ObservableCollection<Contact>
-            {
-                new Contact()
-                {
-                    ID = 0,
-                    FirstName = "Resad",
-                    LastName = "Mmdv",
-                    PhoneNumber ="055 123 45 67",
-                    EmailAdress = "RM@gmail.com",
-                    Favorite = true,
-                    Job = "Programmer"
-                },
-                new Contact()
-                {
-                    ID = 1,
-                    FirstName = "Rasim",
-                    LastName = "Aliyew",
-                    PhoneNumber ="055 123 32 12",
-                    EmailAdress = "RA@gmail.com",
-                    Favorite = true,
-                    Job = "Programmer"
-                }
-            };
+            Storage = storage;   
         }
     }
 }

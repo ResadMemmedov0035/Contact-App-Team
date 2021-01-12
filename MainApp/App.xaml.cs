@@ -28,9 +28,8 @@ namespace MainApp
             Container.RegisterSingleton<ContactDetailsVM>();
         
 
-
-            Container.RegisterSingleton<IStorage,LocalStorage>();
             Container.RegisterSingleton<IMessenger, Messenger>();
+            Container.RegisterSingleton<IStorage, LocalStorage>();
 
             base.OnStartup(e);
         }
