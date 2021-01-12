@@ -22,11 +22,6 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Border BorderBrush="GreenYellow"
-                BorderThickness="1"
-                Grid.RowSpan="2"/>
-
-        
         <!--Row 0-->
 
         <TextBlock Text="Filter"/>

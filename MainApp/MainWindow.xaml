@@ -75,8 +75,12 @@
         </DockPanel>
 
         <!--Column 2-->
-        
-        <ContentControl Grid.Column="2" Content="{Binding CurrentViewModel}"/>
-        
+
+        <Border BorderBrush="GreenYellow"
+                BorderThickness="1"
+                Grid.Column="2">
+            
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+        </Border>
     </Grid>
 </Window>
