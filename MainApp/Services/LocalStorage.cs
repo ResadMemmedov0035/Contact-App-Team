@@ -13,6 +13,11 @@ namespace MainApp.Services
     {
         private ObservableCollection<Contact> contacts { get; set; }
 
+        public LocalStorage()
+        {
+            GetAllInformationFromFile();
+        }
+
         public void Add(Contact contact)
         {
             contacts.Add(contact);
@@ -24,12 +29,6 @@ namespace MainApp.Services
             WriteToFile();
         }
         public ObservableCollection<Contact> GetAll() => contacts;
-
-        public LocalStorage()
-        {
-            GetAllInformationFromFile();
-            MessageBox.Show(contacts[0].FirstName + " - " + contacts.Count);
-        }
 
         public void WriteToFile()
         {

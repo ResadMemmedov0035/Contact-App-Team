@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MainApp.ViewModels
 {
-    class MainVM : ViewModelBase
+    public class MainVM : ViewModelBase
     {
         private ViewModelBase currentViewModel;
         private int selectedIndex;

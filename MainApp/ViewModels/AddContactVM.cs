@@ -24,6 +24,8 @@ namespace MainApp.ViewModels
 
         public string EmailAdressProp { get; set; }
 
+        public string PhotoProp { get; set; }
+
         public bool FavoriteProp { get; set; }
 
         public string JobProp { get; set; }
@@ -41,11 +43,12 @@ namespace MainApp.ViewModels
                 FirstName = FirstNameProp,
                 LastName = LastNameProp,
                 ID = ++Count,
+                PhotoURL = PhotoProp,
                 PhoneNumber = PhoneNumberProp,
                 EmailAdress = EmailAdressProp,
                 Job = JobProp,
                 Favorite = FavoriteProp
-            });
+            }) ;
         }
     }
 }
