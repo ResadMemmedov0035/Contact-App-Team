@@ -8,31 +8,30 @@ using System.Text.Json;
 
 namespace MainApp.Services
 {
-    class LocalStorage : IStorage
+    class LocalStorage
     {
-        private ObservableCollection<IStorage> contacts { get; set; }
+        private ObservableCollection<Contact> contacts { get; set; }
 
-        public void Add(IStorage contact)
+        public void Add(Contact contact)
         {
             contacts.Add(contact);
+            WriteToFile();
         }
-        public void Remove(IStorage contact)
+        public void Remove(Contact contact)
         {
             contacts.Remove(contact);
+            WriteToFile();
         }
-        public ObservableCollection<IStorage> GetAll()
-        {
-            return contacts;
-        }
+        public ObservableCollection<Contact> GetAll() => contacts;
         public void WriteToFile()
         {
            var text = JsonSerializer.Serialize(contacts);
-            File.WriteAllText("UserInformation",text);
+           File.WriteAllText("UserInformation.json",text);
         }
         public void GetAllInformationFromFile()
         {
-            var text = File.ReadAllText("UserInformation");
-            contacts = JsonSerializer.Deserialize<ObservableCollection<IStorage>>(text);
+            var text = File.ReadAllText("UserInformation.json");
+            contacts = JsonSerializer.Deserialize<ObservableCollection<Contact>>(text);
         }
 
     }

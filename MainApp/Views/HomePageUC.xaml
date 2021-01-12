@@ -15,9 +15,8 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{DynamicResource MaterialDesignDarkBackground}"
              FontFamily="{DynamicResource MaterialDesignFont}">
-    
+
     <Grid>
-<<<<<<< HEAD
         <DataGrid ItemsSource="{Binding TempContacts}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
@@ -25,18 +24,16 @@
                 <DataGridTextColumn Header="Surname" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Phone" Binding="{Binding PhoneNumber}"/>
             </DataGrid.Columns>
-            
+
             <DataGrid.RowDetailsTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding EmailAdress}"/>
-                </DataTemplate>    
+                    <TextBlock Text="{Binding EmailAdress, StringFormat=Email Address: {0}}"/>
+                </DataTemplate>
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
-=======
-        
+
         <TextBlock Text="Home Page" FontSize="30"
                    HorizontalAlignment="Center"/>
         <TextBox/>
->>>>>>> ec586da43aa6b532b97b767647357ed43b09d519
     </Grid>
 </UserControl>
