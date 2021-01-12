@@ -13,5 +13,6 @@ namespace MainApp.Models
         public string EmailAdress { get; set; }
         public string PhotoURL { get; set; }
         public string Job { get; set; }
+        public bool Favorite{ get; set; }
     }
 }
