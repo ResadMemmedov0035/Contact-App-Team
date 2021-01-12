@@ -8,9 +8,15 @@ using System.Text.Json;
 
 namespace MainApp.Services
 {
-    public class LocalStorage
+    public class LocalStorage : IStorage
     {
         private ObservableCollection<Contact> contacts { get; set; }
+
+        public LocalStorage()
+        {
+            ObservableCollection<Contact> contacts = new ObservableCollection<Contact>();
+            GetAllInformationFromFile();
+        }
 
         public void Add(Contact contact)
         {

@@ -32,7 +32,7 @@
         <StackPanel>
             <TextBlock Style="{StaticResource TextBlockKey}">Add First Name</TextBlock>
             <TextBox Text="{Binding FirstNameProp}"/>
-
+           
             <TextBlock Style="{StaticResource TextBlockKey}">Add Last Name</TextBlock>
             <TextBox Text="{Binding LastNameProp}"/>
 
@@ -40,13 +40,16 @@
             <TextBox Text="{Binding PhoneNumberProp}"/>
 
             <TextBlock Style="{StaticResource TextBlockKey}">Add Email Address</TextBlock>
-            <TextBox Text="{Binding EmailAddressProp}"/>
+            <TextBox Text="{Binding EmailAdressProp}"/>
 
             <TextBlock Style="{StaticResource TextBlockKey}">Add Photo Url</TextBlock>
-           <TextBox Text="{Binding PhotoProp}"/>
+            <TextBox Text="{Binding PhotoProp}"/>
 
             <TextBlock Style="{StaticResource TextBlockKey}">Add Job</TextBlock>
             <TextBox Text="{Binding JobProp}"/>
+
+            <TextBlock Style="{StaticResource TextBlockKey}">Favorite</TextBlock>
+            <CheckBox IsChecked="{Binding FavoriteProp}"/>
 
             <Button Command="{Binding AddButtonCommand}">Add</Button>
         </StackPanel>
