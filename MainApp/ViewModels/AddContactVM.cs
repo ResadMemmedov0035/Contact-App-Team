@@ -14,7 +14,7 @@ namespace MainApp.ViewModels
 
         IStorage storage;
 
-        private static int Count = 0;
+        public static int Count = 100;
 
         public string FirstNameProp { get; set; }
 
@@ -49,6 +49,7 @@ namespace MainApp.ViewModels
                 Job = JobProp,
                 Favorite = FavoriteProp
             }) ;
+            App.Container.GetInstance<ContactDetailsVM>().IncreaseCount();
         }
     }
 }

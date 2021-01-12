@@ -14,7 +14,6 @@ namespace MainApp.Services
 
         public LocalStorage()
         {
-            ObservableCollection<Contact> contacts = new ObservableCollection<Contact>();
             GetAllInformationFromFile();
         }
 
