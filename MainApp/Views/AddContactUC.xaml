@@ -17,10 +17,8 @@
     <Grid> 
         <!--<TextBlock Text="Add Contact Page" FontSize="30"
                    HorizontalAlignment="Center" />-->
-        <UniformGrid Rows="6" Columns="0" >
-            
-       
-           <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Add First Name</TextBlock>
+        <StackPanel>
+            <TextBlock Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left">Add First Name</TextBlock>
             <TextBox  VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
             <TextBlock>Add Last Name</TextBlock>
@@ -37,8 +35,9 @@
            
            <TextBlock>Add Job</TextBlock>
            <TextBox/>
-        </UniformGrid>
+        </StackPanel>
     </Grid>
 </UserControl>
 
              <!--TextElement.Foreground="{DynamicResource AttentionToActionBrush}"-->
+        
