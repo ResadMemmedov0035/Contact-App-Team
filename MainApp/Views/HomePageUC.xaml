@@ -17,6 +17,7 @@
              FontFamily="{DynamicResource MaterialDesignFont}">
     
     <Grid>
+<<<<<<< HEAD
         <DataGrid ItemsSource="{Binding TempContacts}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
@@ -31,5 +32,11 @@
                 </DataTemplate>    
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
+=======
+        
+        <TextBlock Text="Home Page" FontSize="30"
+                   HorizontalAlignment="Center"/>
+        <TextBox/>
+>>>>>>> ec586da43aa6b532b97b767647357ed43b09d519
     </Grid>
 </UserControl>

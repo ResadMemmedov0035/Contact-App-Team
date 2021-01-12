@@ -4,11 +4,41 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MainApp.Views"
-             mc:Ignorable="d" Background="Aqua"
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             Foreground="Wheat"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignDarkBackground}"
+             FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid> 
+        <!--<TextBlock Text="Add Contact Page" FontSize="30"
+                   HorizontalAlignment="Center" />-->
+        <UniformGrid Rows="6" Columns="0" >
+            
+       
+           <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Add First Name</TextBlock>
+            <TextBox  VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-    <Grid>
-        <TextBlock Text="Add Contact Page" FontSize="30"
-                   HorizontalAlignment="Center" />
+            <TextBlock>Add Last Name</TextBlock>
+            <TextBox/>
+
+            <TextBlock>Add Phone Number</TextBlock>
+            <TextBox/>
+
+            <TextBlock>Add Email Address</TextBlock>
+            <TextBox/>
+            
+           <TextBlock>Add Photo Url</TextBlock>
+           <TextBox/>
+           
+           <TextBlock>Add Job</TextBlock>
+           <TextBox/>
+        </UniformGrid>
     </Grid>
 </UserControl>
+
+             <!--TextElement.Foreground="{DynamicResource AttentionToActionBrush}"-->
