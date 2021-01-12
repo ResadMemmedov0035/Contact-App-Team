@@ -25,7 +25,8 @@ namespace MainApp.ViewModels
                     PhoneNumber ="055 123 45 67",
                     EmailAdress = "RM@gmail.com",
                     Favorite = true,
-                    Job = "Programmer"
+                    Job = "Programmer",
+                    PhotoURL = "https://i.pinimg.com/originals/26/76/3d/26763d481172f5dc599d151570b38ded.png"
                 },
                 new Contact()
                 {
@@ -35,7 +36,8 @@ namespace MainApp.ViewModels
                     PhoneNumber ="055 123 32 12",
                     EmailAdress = "RA@gmail.com",
                     Favorite = true,
-                    Job = "Programmer"
+                    Job = "Programmer",
+                    PhotoURL = "https://i.pinimg.com/originals/26/76/3d/26763d481172f5dc599d151570b38ded.png"
                 }
             };
         }

@@ -17,17 +17,48 @@
              FontFamily="{DynamicResource MaterialDesignFont}">
 
     <Grid>
-        <DataGrid ItemsSource="{Binding TempContacts}" AutoGenerateColumns="False">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" MinHeight="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="GreenYellow"
+                BorderThickness="1"
+                Grid.RowSpan="2"/>
+
+        
+        <!--Row 0-->
+
+        <TextBlock Text="Filter"/>
+
+        <!--Row 1-->
+
+        <DataGrid ItemsSource="{Binding TempContacts}" Grid.Row="1" Margin="5"
+                  CanUserAddRows="False" AutoGenerateColumns="False"
+                  Background="{StaticResource MaterialDesignDarkBackground}"
+                  Foreground="{StaticResource MaterialDesignDarkForeground}">
+
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding FirstName}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Phone" Binding="{Binding PhoneNumber}"/>
+                <DataGridCheckBoxColumn Header="Favorite" Binding="{Binding Favorite}"/>
             </DataGrid.Columns>
 
             <DataGrid.RowDetailsTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding EmailAdress, StringFormat=Email Address: {0}}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="50" Width="50"
+                               Source="{Binding PhotoURL}"/>
+
+                        <TextBlock>
+                            <TextBlock Text="{Binding EmailAdress, StringFormat=Email Address: {0}}"/>
+                            <LineBreak/>
+                            <TextBlock Text="{Binding Job, StringFormat=Job: {0}}"/>
+                        </TextBlock>
+                    </StackPanel>
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
