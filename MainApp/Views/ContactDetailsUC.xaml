@@ -4,10 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MainApp.Views"
-             mc:Ignorable="d" Background="Aqua"
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Details Page" FontSize="30"
-                   HorizontalAlignment="Center"/>
-    </Grid>
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             Foreground="Wheat"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignDarkBackground}"
+             FontFamily="{DynamicResource MaterialDesignFont}">
+    <UniformGrid Rows="2" Columns="0">
+        <Border>
+            <TextBlock>
+                <Run Text="{Binding as}"/>
+                <Run Text="{Binding wwq}"/>
+            </TextBlock>
+        </Border>
+
+        <Border>
+            <TextBlock>
+                <Run Text="{Binding as}"/>
+                <Run Text="{Binding wwq}"/>
+            </TextBlock>
+        </Border>
+    </UniformGrid>
 </UserControl>

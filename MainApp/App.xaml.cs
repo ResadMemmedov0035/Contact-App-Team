@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
+using MainApp.Services;
 using MainApp.ViewModels;
 using SimpleInjector;
 using System;
@@ -25,8 +26,11 @@ namespace MainApp
             Container.Register<AddContactVM>();
             Container.RegisterSingleton<HomePageVM>();
             Container.RegisterSingleton<ContactDetailsVM>();
+        
+
 
             Container.RegisterSingleton<IMessenger, Messenger>();
+           // Container.RegisterSingleton<IStorage, LocalStorage>();
 
             base.OnStartup(e);
         }

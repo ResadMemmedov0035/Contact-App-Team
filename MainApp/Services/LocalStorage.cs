@@ -8,7 +8,7 @@ using System.Text.Json;
 
 namespace MainApp.Services
 {
-    class LocalStorage : IStorage
+    public class LocalStorage
     {
         private ObservableCollection<Contact> contacts { get; set; }
 
@@ -23,11 +23,14 @@ namespace MainApp.Services
             WriteToFile();
         }
         public ObservableCollection<Contact> GetAll() => contacts;
+
         public void WriteToFile()
         {
            var text = JsonSerializer.Serialize(contacts);
+
            File.WriteAllText("../../../UserInformation.json", text);
         }
+
         public void GetAllInformationFromFile()
         {
             var text = File.ReadAllText("../../../UserInformation.json");

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MainApp.Services
 {
-    interface IStorage
+    public interface IStorage
     {
         public void Add(Contact contact);
         public void Remove(Contact contact);

@@ -14,6 +14,15 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{DynamicResource MaterialDesignDarkBackground}"
              FontFamily="{DynamicResource MaterialDesignFont}">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="TextBlockKey">
+            <Style.Setters>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style.Setters>
+        </Style>
+           
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,23 +30,25 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel>
-            <TextBlock Margin="5"  HorizontalAlignment="Center">Add First Name</TextBlock>
-            <TextBox  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Style="{StaticResource TextBlockKey}">Add First Name</TextBlock>
+            <TextBox Text="{Binding FirstNameProp}"/>
 
-            <TextBlock HorizontalAlignment="Center">Add Last Name</TextBlock>
-            <TextBox/>
+            <TextBlock Style="{StaticResource TextBlockKey}">Add Last Name</TextBlock>
+            <TextBox Text="{Binding LastNameProp}"/>
 
-            <TextBlock HorizontalAlignment="Center">Add Phone Number</TextBlock>
-            <TextBox/>
+            <TextBlock Style="{StaticResource TextBlockKey}">Add Phone Number</TextBlock>
+            <TextBox Text="{Binding PhoneNumberProp}"/>
 
-            <TextBlock HorizontalAlignment="Center">Add Email Address</TextBlock>
-            <TextBox/>
+            <TextBlock Style="{StaticResource TextBlockKey}">Add Email Address</TextBlock>
+            <TextBox Text="{Binding EmailAddressProp}"/>
 
-            <TextBlock HorizontalAlignment="Center">Add Photo Url</TextBlock>
-           <TextBox/>
+            <TextBlock Style="{StaticResource TextBlockKey}">Add Photo Url</TextBlock>
+           <TextBox Text="{Binding PhotoProp}"/>
 
-            <TextBlock HorizontalAlignment="Center">Add Job</TextBlock>
-           <TextBox/>
+            <TextBlock Style="{StaticResource TextBlockKey}">Add Job</TextBlock>
+            <TextBox Text="{Binding JobProp}"/>
+
+            <Button Command="{Binding AddButtonCommand}">Add</Button>
         </StackPanel>
     </Grid>
 </UserControl>
