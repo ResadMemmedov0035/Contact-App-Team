@@ -8,10 +8,8 @@ namespace MainApp.Services
 {
     interface IStorage
     {
-        public void Add(IStorage contact);
-        public void Remove(IStorage contact);
-        public ObservableCollection<IStorage> GetAll();
-        public void GetAllInformationFromFile();
-        public void WriteToFile();
+        public void Add(Contact contact);
+        public void Remove(Contact contact);
+        public ObservableCollection<Contact> GetAll();
     }
 }
