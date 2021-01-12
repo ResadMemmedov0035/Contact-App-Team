@@ -17,15 +17,15 @@
     <UniformGrid Rows="2" Columns="0">
         <Border>
             <TextBlock>
-                <Run Text="{Binding as}"/>
-                <Run Text="{Binding wwq}"/>
+                <Run Text="{Binding NumberCount}"/>
+                <Run Text="{Binding FavoriteCount}"/>
             </TextBlock>
         </Border>
 
         <Border>
             <TextBlock>
-                <Run Text="{Binding as}"/>
-                <Run Text="{Binding wwq}"/>
+                <Run Text="{Binding NumberCount}"/>
+                <Run Text="{Binding FavoriteCount}"/>
             </TextBlock>
         </Border>
     </UniformGrid>
