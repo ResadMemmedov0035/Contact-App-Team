@@ -33,7 +33,7 @@
 
         <!--Row 1-->
 
-        <DataGrid ItemsSource="{Binding TempContacts}" Grid.Row="1" Margin="5"
+        <DataGrid ItemsSource="{Binding Contacts}" Grid.Row="1" Margin="5"
                   CanUserAddRows="False" AutoGenerateColumns="False"
                   Background="{StaticResource MaterialDesignDarkBackground}"
                   Foreground="{StaticResource MaterialDesignDarkForeground}">

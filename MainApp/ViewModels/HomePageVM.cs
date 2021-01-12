@@ -12,7 +12,7 @@ namespace MainApp.ViewModels
     {
         private IStorage Storage;
 
-        public ObservableCollection<Contact> TempContacts => Storage.GetAll();
+        public ObservableCollection<Contact> Contacts => Storage.GetAll();
 
         public HomePageVM(IStorage storage)
         {

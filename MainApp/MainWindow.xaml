@@ -34,22 +34,49 @@
     
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="{Binding ColumnWidth}"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
         <!--Column 0-->
-        
-        <ListBox Background="Crimson" SelectedIndex="{Binding SelectedIndex}">
-            
-            <ListBoxItem Content="{materialDesign:PackIcon Kind=Home, Size=24}"/>
-            <ListBoxItem Content="{materialDesign:PackIcon Kind=Add, Size=24}"/>
-            <ListBoxItem Content="{materialDesign:PackIcon Kind=Details, Size=24}"/>
-        </ListBox>
 
-        <!--Column 1-->
+        <DockPanel Background="GreenYellow" LastChildFill="False">
+            <ListBox SelectedIndex="{Binding SelectedIndex}" DockPanel.Dock="Top">
+
+                <ListBoxItem ToolTip="Home">
+                    <StackPanel Orientation="Horizontal">
+
+                        <materialDesign:PackIcon Kind="Home" Width="24" Height="24"/>
+                        <TextBlock Text="Home" FontSize="20" Margin="5 0 0 0"/>
+                    </StackPanel>
+                </ListBoxItem>
+
+                <ListBoxItem ToolTip="Add Contact">
+                    <StackPanel Orientation="Horizontal">
+
+                        <materialDesign:PackIcon Kind="Add" Width="24" Height="24"/>
+                        <TextBlock Text="Add Contact" FontSize="20" Margin="5 0 0 0"/>
+                    </StackPanel>
+                </ListBoxItem>
+
+                <ListBoxItem ToolTip="Details">
+                    <StackPanel Orientation="Horizontal">
+
+                        <materialDesign:PackIcon Kind="Details" Width="24" Height="24"/>
+                        <TextBlock Text="Details" FontSize="20" Margin="5 0 0 0"/>
+                    </StackPanel>
+                </ListBoxItem>
+            </ListBox>
+
+            <ToggleButton DockPanel.Dock="Bottom" 
+                          IsChecked="{Binding IsCheckedHamgurber}"
+                          Width="{Binding ColumnWidth}"
+                          Style="{StaticResource MaterialDesignHamburgerToggleButton}"/>
+        </DockPanel>
+
+        <!--Column 2-->
         
-        <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}"/>
+        <ContentControl Grid.Column="2" Content="{Binding CurrentViewModel}"/>
         
     </Grid>
 </Window>
