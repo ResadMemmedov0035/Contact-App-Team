@@ -26,11 +26,7 @@ namespace MainApp.Services
         public void WriteToFile()
         {
            var text = JsonSerializer.Serialize(contacts);
-<<<<<<< HEAD
            File.WriteAllText("UserInformation.json",text);
-=======
-            File.WriteAllText("UserInformation.json",text);
->>>>>>> b67196e0eb62d0fc2f367181a47e3e4f795c0ae5
         }
         public void GetAllInformationFromFile()
         {

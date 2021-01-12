@@ -31,9 +31,5 @@
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
-
-        <TextBlock Text="Home Page" FontSize="30"
-                   HorizontalAlignment="Center"/>
-        <TextBox/>
     </Grid>
 </UserControl>
