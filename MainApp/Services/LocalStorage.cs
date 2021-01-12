@@ -26,11 +26,11 @@ namespace MainApp.Services
         public void WriteToFile()
         {
            var text = JsonSerializer.Serialize(contacts);
-            File.WriteAllText("UserInformation.json",text);
+           File.WriteAllText("../../../UserInformation.json", text);
         }
         public void GetAllInformationFromFile()
         {
-            var text = File.ReadAllText("UserInformation.json");
+            var text = File.ReadAllText("../../../UserInformation.json");
             contacts = JsonSerializer.Deserialize<ObservableCollection<Contact>>(text);
         }
 

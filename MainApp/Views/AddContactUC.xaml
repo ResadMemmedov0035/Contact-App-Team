@@ -14,26 +14,29 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{DynamicResource MaterialDesignDarkBackground}"
              FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid> 
-        <!--<TextBlock Text="Add Contact Page" FontSize="30"
-                   HorizontalAlignment="Center" />-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <StackPanel>
-            <TextBlock Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left">Add First Name</TextBlock>
+            <TextBlock Margin="5"  HorizontalAlignment="Center">Add First Name</TextBlock>
             <TextBox  VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-            <TextBlock>Add Last Name</TextBlock>
+            <TextBlock HorizontalAlignment="Center">Add Last Name</TextBlock>
             <TextBox/>
 
-            <TextBlock>Add Phone Number</TextBlock>
+            <TextBlock HorizontalAlignment="Center">Add Phone Number</TextBlock>
             <TextBox/>
 
-            <TextBlock>Add Email Address</TextBlock>
+            <TextBlock HorizontalAlignment="Center">Add Email Address</TextBlock>
             <TextBox/>
-            
-           <TextBlock>Add Photo Url</TextBlock>
+
+            <TextBlock HorizontalAlignment="Center">Add Photo Url</TextBlock>
            <TextBox/>
-           
-           <TextBlock>Add Job</TextBlock>
+
+            <TextBlock HorizontalAlignment="Center">Add Job</TextBlock>
            <TextBox/>
         </StackPanel>
     </Grid>
