@@ -17,7 +17,6 @@
              FontFamily="{DynamicResource MaterialDesignFont}">
 
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" MinHeight="40"/>
             <RowDefinition/>
@@ -62,5 +61,6 @@
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
+
     </Grid>
 </UserControl>

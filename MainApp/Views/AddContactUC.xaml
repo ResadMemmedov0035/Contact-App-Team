@@ -14,27 +14,41 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{DynamicResource MaterialDesignDarkBackground}"
              FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid> 
-        <!--<TextBlock Text="Add Contact Page" FontSize="30"
-                   HorizontalAlignment="Center" />-->
-        <StackPanel>
-            <TextBlock Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left">Add First Name</TextBlock>
-            <TextBox  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-            <TextBlock>Add Last Name</TextBlock>
-            <TextBox/>
-
-            <TextBlock>Add Phone Number</TextBlock>
-            <TextBox/>
-
-            <TextBlock>Add Email Address</TextBlock>
-            <TextBox/>
-            
-           <TextBlock>Add Photo Url</TextBlock>
-           <TextBox/>
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="TextBlockKey">
+            <Style.Setters>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style.Setters>
+        </Style>
            
-           <TextBlock>Add Job</TextBlock>
-           <TextBox/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Style="{StaticResource TextBlockKey}">Add First Name</TextBlock>
+            <TextBox Text="{Binding FirstNameProp}"/>
+
+            <TextBlock Style="{StaticResource TextBlockKey}">Add Last Name</TextBlock>
+            <TextBox Text="{Binding LastNameProp}"/>
+
+            <TextBlock Style="{StaticResource TextBlockKey}">Add Phone Number</TextBlock>
+            <TextBox Text="{Binding PhoneNumberProp}"/>
+
+            <TextBlock Style="{StaticResource TextBlockKey}">Add Email Address</TextBlock>
+            <TextBox Text="{Binding EmailAddressProp}"/>
+
+            <TextBlock Style="{StaticResource TextBlockKey}">Add Photo Url</TextBlock>
+           <TextBox Text="{Binding PhotoProp}"/>
+
+            <TextBlock Style="{StaticResource TextBlockKey}">Add Job</TextBlock>
+            <TextBox Text="{Binding JobProp}"/>
+
+            <Button Command="{Binding AddButtonCommand}">Add</Button>
         </StackPanel>
     </Grid>
 </UserControl>

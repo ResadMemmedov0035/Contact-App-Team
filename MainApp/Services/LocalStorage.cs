@@ -5,10 +5,11 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Text.Json;
+using System.Windows;
 
 namespace MainApp.Services
 {
-    class LocalStorage
+    public class LocalStorage : IStorage
     {
         private ObservableCollection<Contact> contacts { get; set; }
 
@@ -23,14 +24,23 @@ namespace MainApp.Services
             WriteToFile();
         }
         public ObservableCollection<Contact> GetAll() => contacts;
+
+        public LocalStorage()
+        {
+            GetAllInformationFromFile();
+            MessageBox.Show(contacts[0].FirstName + " - " + contacts.Count);
+        }
+
         public void WriteToFile()
         {
            var text = JsonSerializer.Serialize(contacts);
-           File.WriteAllText("UserInformation.json",text);
+
+           File.WriteAllText("../../../ContactData.json", text);
         }
+
         public void GetAllInformationFromFile()
         {
-            var text = File.ReadAllText("UserInformation.json");
+            var text = File.ReadAllText("../../../ContactData.json");
             contacts = JsonSerializer.Deserialize<ObservableCollection<Contact>>(text);
         }
 
