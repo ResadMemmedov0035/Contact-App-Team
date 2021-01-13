@@ -15,7 +15,6 @@ namespace MainApp.ViewModels
     {
         private IStorage Storage;
         private IEnumerable<Contact> contacts;
-        private RelayCommand searchCommand;
         private string search;
 
         public IEnumerable<Contact> Contacts { get => contacts; set => Set(ref contacts, value); } /*=> Storage.GetAll();*/
@@ -24,29 +23,32 @@ namespace MainApp.ViewModels
             set
             {
                 search = value;
-                SearchCommand.RaiseCanExecuteChanged();
+                DynamicSearch();
             }
         }
-        
-        public RelayCommand SearchCommand => searchCommand ??= new RelayCommand(() =>
-        {
-            Contacts = Storage.GetAll();
-            Contacts = Contacts.Where(x =>
-            {
-                return
-                x.FirstName.Contains(Search) ||
-                x.LastName.Contains(Search) ||
-                x.PhoneNumber.Contains(Search) ||
-                x.Job.Contains(Search) ||
-                x.EmailAdress.Contains(Search);
-            });
-        },
-        () => !string.IsNullOrWhiteSpace(Search));
 
         public HomePageVM(IStorage storage)
         {
             Storage = storage;
             Contacts = Storage.GetAll();
+        }
+
+        private void DynamicSearch()
+        {
+            Contacts = Storage.GetAll();
+
+            if (!string.IsNullOrWhiteSpace(Search))
+            {
+                Contacts = Contacts.Where(x =>
+                {
+                    return
+                    x.FirstName.Contains(Search) ||
+                    x.LastName.Contains(Search) ||
+                    x.PhoneNumber.Contains(Search) ||
+                    x.Job.Contains(Search) ||
+                    x.EmailAdress.Contains(Search);
+                }).ToList();
+            }
         }
     }
 }
