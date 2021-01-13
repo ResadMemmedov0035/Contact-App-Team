@@ -7,9 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="contact-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
     <PackageReference Include="SimpleInjector" Version="5.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="contact-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

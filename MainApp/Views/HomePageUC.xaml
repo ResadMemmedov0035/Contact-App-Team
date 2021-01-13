@@ -24,7 +24,35 @@
 
         <!--Row 0-->
 
-        <TextBlock Text="Filter"/>
+        <materialDesign:ColorZone
+            Mode="Standard"
+            Padding="8 4 8 4"
+            CornerRadius="2"
+            Panel.ZIndex="1"
+            Margin="5" Opacity="0.66"
+            materialDesign:ShadowAssist.ShadowDepth="Depth1">
+            
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Style="{DynamicResource MaterialDesignToolButton}"
+                            Command="{Binding SearchCommand}">
+                        <materialDesign:PackIcon Kind="Search" />
+                    </Button>
+                    
+                    <TextBox Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.Column="1"
+                        Margin="8 0 0 0"
+                        materialDesign:HintAssist.Hint="Search something..."
+                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                        BorderThickness="0"
+                        MinWidth="200"
+                        VerticalAlignment="Center" />
+            </Grid>
+        </materialDesign:ColorZone>
 
         <!--Row 1-->
 
@@ -37,7 +65,7 @@
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding FirstName}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding LastName}"/>
-                <DataGridTextColumn Header="Phone" Binding="{Binding PhoneNumber}"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding PhoneNumber}" IsReadOnly="True"/>
                 <DataGridCheckBoxColumn Header="Favorite" Binding="{Binding Favorite}"/>
             </DataGrid.Columns>
 

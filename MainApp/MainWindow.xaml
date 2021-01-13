@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainApp"
         xmlns:v="clr-namespace:MainApp.Views"
         xmlns:vm="clr-namespace:MainApp.ViewModels"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Icon="contact-icon.png"
         Title="Contact App" Height="450" Width="800"
         
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
