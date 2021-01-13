@@ -11,6 +11,7 @@ namespace MainApp.ViewModels
 {
     public class MainVM : ViewModelBase
     {
+
         private ViewModelBase currentViewModel;
         private int selectedIndex = 0;
         private GridLength columnWidth;
