@@ -26,48 +26,85 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="1.35*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel>
-            <TextBlock Style="{StaticResource TextBlockKey}">Add First Name</TextBlock>
-            <TextBox x:Name="zero"
+        <StackPanel Grid.Column="1">
+
+            <CheckBox x:Name="qw"></CheckBox>
+            <TextBlock HorizontalAlignment="Center" 
+             Style="{StaticResource 
+                    MaterialDesignButtonTextBlock}" Margin="5">
+                     First Name</TextBlock>
+            <TextBox Margin="0,0,0,8" x:Name="zero"
               Text="{Binding FirstNameProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}"/>
-           
-            <TextBlock Style="{StaticResource TextBlockKey}">Add Last Name</TextBlock>
-            <TextBox Text="{Binding LastNameProp,
+
+            <TextBlock Style="{StaticResource 
+                    MaterialDesignButtonTextBlock}"
+                    HorizontalAlignment="Center" Margin="5">
+                    Last Name</TextBlock>
+            <TextBox Margin="0,0,0,8" Text="{Binding LastNameProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}"/>
 
-            <TextBlock Style="{StaticResource TextBlockKey}">Add Phone Number</TextBlock>
-            <TextBox Text="{Binding PhoneNumberProp,
+            <TextBlock Style="{StaticResource 
+                    MaterialDesignButtonTextBlock}"
+                    HorizontalAlignment="Center" Margin="5">
+                Phone Number</TextBlock>
+            <TextBox Margin="0,0,0,8" Text="{Binding PhoneNumberProp,
+                UpdateSourceTrigger=PropertyChanged,
+                ValidatesOnDataErrors=True,
+                ValidatesOnNotifyDataErrors=True}" />
+
+            <TextBlock Style="{StaticResource 
+                    MaterialDesignButtonTextBlock}"
+                    HorizontalAlignment="Center" Margin="5">
+                Email Address</TextBlock>
+            <TextBox Margin="0,0,0,8" Text="{Binding EmailAdressProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}"/>
 
-            <TextBlock Style="{StaticResource TextBlockKey}">Add Email Address</TextBlock>
-            <TextBox Text="{Binding EmailAdressProp,
+            <TextBlock Style="{StaticResource 
+                    MaterialDesignButtonTextBlock}"
+                    HorizontalAlignment="Center" Margin="5">
+                Job</TextBlock>
+            <TextBox Margin="0,0,0,8" Text="{Binding JobProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}"/>
 
-            <TextBlock Style="{StaticResource TextBlockKey}">Add Photo Url</TextBlock>
-            <TextBox Text="{Binding PhotoProp}"/>
+            <TextBlock Style="{StaticResource 
+                    MaterialDesignButtonTextBlock}"
+                    HorizontalAlignment="Center" Margin="5">Photo Url</TextBlock>
+            <TextBox Margin="0,0,0,8" Text="{Binding PhotoProp}" />
 
-            <TextBlock Style="{StaticResource TextBlockKey}">Add Job</TextBlock>
-            <TextBox Text="{Binding JobProp,
-                UpdateSourceTrigger=PropertyChanged,
-                ValidatesOnDataErrors=True,
-                ValidatesOnNotifyDataErrors=True}"/>
 
-            <TextBlock Style="{StaticResource TextBlockKey}">Favorite</TextBlock>
-            <CheckBox IsChecked="{Binding FavoriteProp}"/>
+            <TextBlock Style="{StaticResource 
+                    MaterialDesignButtonTextBlock}"
+                    HorizontalAlignment="Center" Margin="15">
+                    Are You Want To Add This Contact To Favorite</TextBlock>
+            
+            
+            <StackPanel VerticalAlignment="Center" 
+                        HorizontalAlignment="Center" 
+                        Orientation="Horizontal" 
+                        Margin="5">
+                <TextBlock  Margin="0,1,3,10">Yes</TextBlock>
+                <CheckBox Margin="0,0,0,10"  Style="{StaticResource MaterialDesignAccentCheckBox}"  IsChecked="{Binding FavoriteProp}"/>
+                <TextBlock Margin="140,0,3,10">No</TextBlock>
+                <CheckBox Margin="0,0,0,10"
+                          Style="{StaticResource 
+                          MaterialDesignAccentCheckBox}"  
+                          IsChecked="{Binding FavoriteProp}"/>
 
-            <Button Command="{Binding AddButtonCommand}">Add</Button>
+            </StackPanel>
+
+            <Button Style="{StaticResource MaterialDesignFlatAccentBgButton}" Command="{Binding AddButtonCommand}">Add</Button>
         </StackPanel>
     </Grid>
 </UserControl>
