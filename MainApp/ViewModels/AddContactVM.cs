@@ -17,9 +17,9 @@ namespace MainApp.ViewModels
 
         IStorage storage;
 
-        public bool IsValid { get; set; } = true;
-
         public static int Count = 100;
+        private bool unFavoriteProp;
+        private bool favoriteProp;
 
         [Required]
         public string FirstNameProp { get; set; }
@@ -37,12 +37,30 @@ namespace MainApp.ViewModels
 
         public string PhotoProp { get; set; }
 
-        public bool FavoriteProp { get; set; }
+        public bool FavoriteProp 
+        { 
+            get => favoriteProp; 
+            set 
+            {
+
+                if (UnFavoriteProp) UnFavoriteProp = false;
+                Set(ref favoriteProp, value);
+            } 
+        }
+        public bool UnFavoriteProp
+        {
+            get => unFavoriteProp;
+            set 
+            {
+                if (FavoriteProp) FavoriteProp = false;
+                Set(ref unFavoriteProp,value); 
+            }
+        }
 
         [Required]
         public string JobProp { get; set; }
 
-        public RelayCommand AddButtonCommand => addButtonCommand ??= new RelayCommand(() => Add(), IsValid);
+        public RelayCommand AddButtonCommand => addButtonCommand ??= new RelayCommand(() => Add());
 
         public AddContactVM(IStorage storage)
         {
@@ -60,7 +78,7 @@ namespace MainApp.ViewModels
                 EmailAdress = EmailAdressProp,
                 Job = JobProp,
                 Favorite = FavoriteProp
-            }) ;
+            });
             App.Container.GetInstance<ContactDetailsVM>().IncreaseCount();
         }
 
@@ -70,9 +88,10 @@ namespace MainApp.ViewModels
         {
             get
             {
+                
                 var context = new ValidationContext(this);
                 var results = new List<ValidationResult>();
-                 IsValid = Validator.TryValidateObject(this, context, results, true);
+                var IsValid = Validator.TryValidateObject(this, context, results, true);
                 if (IsValid)
                     return string.Empty;
 

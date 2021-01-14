@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MainApp.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="570" d:DesignWidth="875"
              TextElement.FontWeight="Regular"
              TextElement.FontSize="13"
              Foreground="Wheat"
@@ -14,26 +14,74 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{DynamicResource MaterialDesignDarkBackground}"
              FontFamily="{DynamicResource MaterialDesignFont}">
-    <UniformGrid Rows="0" Columns="0">
-        <Border Style="{StaticResource MaterialDesignToolBarMainPanelBorderStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Azure" BorderThickness="5">
-            <TextBlock Margin="15">
-                <TextBlock Text="Number Of Cout Contact" FontSize="45" Style="{DynamicResource MaterialDesignHeadline6TextBlock}"/>
-                 <LineBreak/>
-                <Run Text="{Binding NumberCount}" FontSize="30" Foreground="OrangeRed" FontStyle="Oblique"/>
-                <LineBreak/>
-                <LineBreak/>
-                <Run Text="Number Of Favorite Contact" FontSize="45" FontWeight="Bold"/>
-                <LineBreak/>
-                <Run Text="{Binding FavoriteCount}" Foreground="OrangeRed" FontSize="30"/>
-            </TextBlock>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.6*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border BorderBrush="{StaticResource 
+                MaterialDesignBackground}" 
+                Margin="5"
+                Grid.ColumnSpan="2"
+                BorderThickness="5">
+            
         </Border>
 
-        <!--<Border  BorderBrush="BlueViolet" Visibility="Hidden"  Margin="10" BorderThickness="5">
-            <TextBlock>
-                <Run Text="{Binding NumberCount}"/>
-                <LineBreak/>
-                <Run Text="{Binding FavoriteCount}"/>
-            </TextBlock>
-        </Border>-->
-    </UniformGrid>
+        <UniformGrid Rows="1" Columns="0">
+            
+            <TextBlock 
+            Text="Number Of Cout Contact:"
+            Margin="5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="47" Style="{DynamicResource 
+            MaterialDesignHeadline6TextBlock}"/>
+
+            <!--<Button Style="{StaticResource MaterialDesignFlatAccentBgButton}">Go To Add Contact</Button>-->
+        </UniformGrid>
+
+
+
+        <TextBlock Grid.Column="1"
+         HorizontalAlignment="Center"
+         VerticalAlignment="Center"
+         Text="{Binding NumberCount}" 
+         FontSize="55"/>
+
+        <Border BorderBrush="{StaticResource 
+                MaterialDesignBackground}" 
+                Margin="5"
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                BorderThickness="5">
+        </Border>
+
+        <TextBlock 
+            Text="Number Of Favorite Contact:"
+            Grid.Row="1"
+            Margin="5"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="47" Style="{DynamicResource 
+            MaterialDesignHeadline6TextBlock}"/>
+
+    </Grid>
 </UserControl>
+
+          <!--<Border Style="{StaticResource MaterialDesignToolBarMainPanelBorderStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Azure" BorderThickness="5">
+             <TextBlock Margin="15">
+                 <TextBlock Text="Number Of Cout Contact" FontSize="45" Style="{DynamicResource MaterialDesignHeadline6TextBlock}"/>
+                  <LineBreak/>
+                 <Run Text="{Binding NumberCount}" FontSize="30" Foreground="OrangeRed" FontStyle="Oblique"/>
+                 <LineBreak/>
+                 <LineBreak/>
+                 <Run Text="Number Of Favorite Contact" FontSize="45" FontWeight="Bold"/>
+                 <LineBreak/>
+                 <Run Text="{Binding FavoriteCount}" Foreground="OrangeRed" FontSize="30"/>
+             </TextBlock>
+          </Border>-->
