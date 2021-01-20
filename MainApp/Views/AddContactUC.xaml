@@ -15,26 +15,7 @@
              Background="{DynamicResource MaterialDesignDarkBackground}"
              FontFamily="{DynamicResource MaterialDesignFont}">
   
-    <UserControl.Resources>
-        <ControlTemplate x:Key="roundedButton" TargetType="TextBox">
-            <Border CornerRadius="10" Background="{TemplateBinding Background}">
- 
-                <TextBlock 
-                            Foreground="White"
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Center">
-                     <ContentPresenter/>
-                </TextBlock>
-            </Border>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="materialDesign:ValidationAssist.HasError" Value="False"/>
-                </Trigger>
-                
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-
-    </UserControl.Resources>
+   
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -42,31 +23,32 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
-
+  
             <TextBlock HorizontalAlignment="Center" 
              Style="{StaticResource 
                     MaterialDesignButtonTextBlock}" Margin="5">
                      First Name</TextBlock>
-            <TextBox Margin="0,0,0,8" x:Name="zero"              
+            <TextBox  Margin="0,0,0,8" x:Name="FirstTextBox"  
+             
               Text="{Binding FirstNameProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
-                ValidatesOnNotifyDataErrors=True}"/>
+                ValidatesOnNotifyDataErrors=True,NotifyOnValidationError=True}"/>
 
             <TextBlock Style="{StaticResource 
                     MaterialDesignButtonTextBlock}"
                     HorizontalAlignment="Center" Margin="5">
                     Last Name</TextBlock>
-            <TextBox Margin="0,0,0,8" Text="{Binding LastNameProp,
+            <TextBox x:Name="SecondTextBox" Margin="0,0,0,8" Text="{Binding LastNameProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}"/>
-
+        
             <TextBlock Style="{StaticResource 
                     MaterialDesignButtonTextBlock}"
                     HorizontalAlignment="Center" Margin="5">
                 Phone Number</TextBlock>
-            <TextBox Margin="0,0,0,8" Text="{Binding PhoneNumberProp,
+            <TextBox x:Name="ThirdTextBox"  Margin="0,0,0,8" Text="{Binding PhoneNumberProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}" />
@@ -75,7 +57,7 @@
                     MaterialDesignButtonTextBlock}"
                     HorizontalAlignment="Center" Margin="5">
                 Email Address</TextBlock>
-            <TextBox Margin="0,0,0,8" Text="{Binding EmailAdressProp,
+            <TextBox x:Name="FourthTextBox" Margin="0,0,0,8" Text="{Binding EmailAdressProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}"/>
@@ -84,7 +66,7 @@
                     MaterialDesignButtonTextBlock}"
                     HorizontalAlignment="Center" Margin="5">
                 Job</TextBlock>
-            <TextBox Margin="0,0,0,8" Text="{Binding JobProp,
+            <TextBox x:Name="FifthTextBox"  Margin="0,0,0,8" Text="{Binding JobProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}"/>
@@ -116,10 +98,12 @@
                           Style="{StaticResource 
                           MaterialDesignAccentCheckBox}"  
                           IsChecked="{Binding UnFavoriteProp}"/>
-
+                     
             </StackPanel>
+            <TextBlock Text="{Binding Number}" Visibility="Collapsed"/>
+            <Button   Style="{StaticResource MaterialDesignFlatAccentBgButton}" Command="{Binding AddButtonCommand}">Add</Button>
 
-            <Button Style="{StaticResource MaterialDesignFlatAccentBgButton}" Command="{Binding AddButtonCommand}">Add</Button>
+
         </StackPanel>
     </Grid>
 </UserControl>

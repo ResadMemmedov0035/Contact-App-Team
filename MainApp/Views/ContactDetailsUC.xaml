@@ -10,78 +10,61 @@
              TextElement.FontWeight="Regular"
              TextElement.FontSize="13"
              Foreground="Wheat"
+             Background="White"
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
-             Background="{DynamicResource MaterialDesignDarkBackground}"
              FontFamily="{DynamicResource MaterialDesignFont}">
+           
+             <!--Background="{DynamicResource MaterialDesignDarkBackground}"-->
+   
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3.6*"/>
+            <ColumnDefinition Width="210"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border BorderBrush="{StaticResource 
-                MaterialDesignBackground}" 
-                Margin="5"
-                Grid.ColumnSpan="2"
-                BorderThickness="5">
-            
-        </Border>
+        <ListBox  Background="{StaticResource MaterialDesignToolBarBackground}">
+            <ListBoxItem Background="{StaticResource SecondaryHueMidBrush}" Width="auto">
+                
+                <StackPanel Orientation="Horizontal">
+                    
+                    <materialDesign:PackIcon Kind="AccountGroup" Height="100" Width="100"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
+                        <Run FontSize="35">255</Run>
+                    </TextBlock>
+                </StackPanel>
+                
+            </ListBoxItem>
 
-        <UniformGrid Rows="1" Columns="0">
-            
-            <TextBlock 
-            Text="Number Of Cout Contact:"
-            Margin="5"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="47" Style="{DynamicResource 
-            MaterialDesignHeadline6TextBlock}"/>
+            <ListBoxItem   Background="{StaticResource PrimaryHueMidBrush}" Width="auto">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountHeart" Height="100" Width="100"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
+                        <Run FontSize="35">255</Run>
+                    </TextBlock>
+                </StackPanel>
 
-            <!--<Button Style="{StaticResource MaterialDesignFlatAccentBgButton}">Go To Add Contact</Button>-->
-        </UniformGrid>
+            </ListBoxItem>
+            <ListBoxItem  Background="{StaticResource PrimaryHueMidBrush}" Width="auto">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountMultiplePlus" Height="100" Width="100"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
+                            <Run FontSize="35">255</Run>
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
 
-
-
-        <TextBlock Grid.Column="1"
-         HorizontalAlignment="Center"
-         VerticalAlignment="Center"
-         Text="{Binding NumberCount}" 
-         FontSize="55"/>
-
-        <Border BorderBrush="{StaticResource 
-                MaterialDesignBackground}" 
-                Margin="5"
-                Grid.Row="1"
-                Grid.ColumnSpan="2"
-                BorderThickness="5">
-        </Border>
-
-        <TextBlock 
-            Text="Number Of Favorite Contact:"
-            Grid.Row="1"
-            Margin="5"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            FontSize="47" Style="{DynamicResource 
-            MaterialDesignHeadline6TextBlock}"/>
+            <ListBoxItem  Background="{StaticResource PrimaryHueMidBrush}" Width="auto">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountOff" Height="100" Width="100"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
+                            <Run FontSize="35">255</Run>
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+        </ListBox>
 
     </Grid>
 </UserControl>
 
-          <!--<Border Style="{StaticResource MaterialDesignToolBarMainPanelBorderStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Azure" BorderThickness="5">
-             <TextBlock Margin="15">
-                 <TextBlock Text="Number Of Cout Contact" FontSize="45" Style="{DynamicResource MaterialDesignHeadline6TextBlock}"/>
-                  <LineBreak/>
-                 <Run Text="{Binding NumberCount}" FontSize="30" Foreground="OrangeRed" FontStyle="Oblique"/>
-                 <LineBreak/>
-                 <LineBreak/>
-                 <Run Text="Number Of Favorite Contact" FontSize="45" FontWeight="Bold"/>
-                 <LineBreak/>
-                 <Run Text="{Binding FavoriteCount}" Foreground="OrangeRed" FontSize="30"/>
-             </TextBlock>
-          </Border>-->
+         

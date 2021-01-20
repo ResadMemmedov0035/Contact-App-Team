@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using MainApp.Services;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ namespace MainApp.ViewModels
 {
     class ContactDetailsVM : ViewModelBase
     {
-        private  int numberCount = AddContactVM.Count;
+        private int numberCount = AddContactVM.Count;
 
         public int NumberCount { get => numberCount; set => Set(ref numberCount, value); }
 

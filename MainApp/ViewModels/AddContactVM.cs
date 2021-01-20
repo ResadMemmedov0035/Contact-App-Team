@@ -15,52 +15,107 @@ namespace MainApp.ViewModels
     {
         private RelayCommand addButtonCommand;
 
-        IStorage storage;
+        private IStorage storage;
 
         public static int Count = 100;
         private bool unFavoriteProp;
         private bool favoriteProp;
+        private string firstNameProp;
+        private string lastNameProp;
+        private string emailAdressProp;
+        private string jobProp;
+        private string photoProp;
+        private string phoneNumberProp;
 
         [Required]
-        public string FirstNameProp { get; set; }
-
-        [Required]
-        public string LastNameProp { get; set; }
-
-        [Required]
-        [Phone]
-        public string PhoneNumberProp { get; set; }
-
-        [Required]
-        [EmailAddress]
-        public string EmailAdressProp { get; set; }
-
-        public string PhotoProp { get; set; }
-
-        public bool FavoriteProp 
-        { 
-            get => favoriteProp; 
-            set 
-            {
-
-                if (UnFavoriteProp) UnFavoriteProp = false;
-                Set(ref favoriteProp, value);
-            } 
-        }
-        public bool UnFavoriteProp
+        public string FirstNameProp
         {
-            get => unFavoriteProp;
-            set 
+            get => firstNameProp;
+            set
             {
-                if (FavoriteProp) FavoriteProp = false;
-                Set(ref unFavoriteProp,value); 
+                firstNameProp = value;
+                AddButtonCommand.RaiseCanExecuteChanged();
             }
         }
 
         [Required]
-        public string JobProp { get; set; }
+        public string LastNameProp
+        {
+            get => lastNameProp;
+            set
+            {
+                lastNameProp = value;
+                AddButtonCommand.RaiseCanExecuteChanged();
+            }
+        }
 
-        public RelayCommand AddButtonCommand => addButtonCommand ??= new RelayCommand(() => Add());
+        [Required]
+        [Phone]
+        public string PhoneNumberProp { get => phoneNumberProp; 
+            set 
+            {
+                Set(ref phoneNumberProp, value); 
+                AddButtonCommand.RaiseCanExecuteChanged();
+            } 
+        }
+        [Required]
+        [EmailAddress]
+        public string EmailAdressProp
+        {
+            get => emailAdressProp;
+            set
+            {
+                emailAdressProp = value;
+                AddButtonCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        public string PhotoProp
+        {
+            get => photoProp;
+            set
+            {
+                Set(ref photoProp, value);
+            }
+        }
+        public bool FavoriteProp
+        {
+            get => favoriteProp;
+            set
+            {
+                if (UnFavoriteProp) UnFavoriteProp = false;
+                Set(ref favoriteProp, value);
+            }
+        }
+        public bool UnFavoriteProp
+        {
+            get => unFavoriteProp;
+            set
+            {
+                if (FavoriteProp) FavoriteProp = false;
+                Set(ref unFavoriteProp, value);
+            }
+        }
+
+        [Required]
+        public string JobProp
+        {
+            get => jobProp;
+            set
+            {
+                Set(ref jobProp, value);
+                AddButtonCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        public RelayCommand AddButtonCommand => addButtonCommand ??= new RelayCommand(() => Add(),
+         () => this["FirstNameProp"] == string.Empty &&
+               this["LastNameProp"] == string.Empty &&
+               this["PhoneNumberProp"] == string.Empty &&
+               this["FavoriteProp"] == string.Empty &&
+               this["JobProp"] == string.Empty 
+
+          );
 
         public AddContactVM(IStorage storage)
         {
@@ -88,7 +143,7 @@ namespace MainApp.ViewModels
         {
             get
             {
-                
+
                 var context = new ValidationContext(this);
                 var results = new List<ValidationResult>();
                 var IsValid = Validator.TryValidateObject(this, context, results, true);
