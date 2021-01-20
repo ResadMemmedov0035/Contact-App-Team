@@ -16,6 +16,13 @@
              Background="{DynamicResource MaterialDesignDarkBackground}"
              FontFamily="{DynamicResource MaterialDesignFont}">
 
+    <UserControl.Resources>
+        <Style x:Key="headerStyle" TargetType="DataGridColumnHeader"
+               BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" MinHeight="40"/>
@@ -50,11 +57,17 @@
                   Foreground="{StaticResource MaterialDesignDarkForeground}">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding FirstName}"/>
-                <DataGridTextColumn Header="Surname" Binding="{Binding LastName}"/>
-                <DataGridTextColumn Header="Phone" Binding="{Binding PhoneNumber}" />
-                <DataGridCheckBoxColumn Header="Favorite" Binding="{Binding Favorite}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" IsReadOnly="True"
+                                    Width="*"/>
+                
+                <DataGridTextColumn Header="Name" Binding="{Binding FirstName}" Width="*"/>
+                
+                <DataGridTextColumn Header="Surname" Binding="{Binding LastName}" Width="*"/>
+                
+                <DataGridTextColumn Header="Phone" Binding="{Binding PhoneNumber}" Width="*"/>
+                
+                <DataGridCheckBoxColumn Header="Favorite" Binding="{Binding Favorite}"
+                                        HeaderStyle="{StaticResource headerStyle}" Width="*"/>
             </DataGrid.Columns>
 
             <DataGrid.RowDetailsTemplate>
