@@ -109,17 +109,24 @@ namespace MainApp.ViewModels
         }
 
         public RelayCommand AddButtonCommand => addButtonCommand ??= new RelayCommand(() => Add(),
-         () => this["FirstNameProp"] == string.Empty &&
-               this["LastNameProp"] == string.Empty &&
-               this["PhoneNumberProp"] == string.Empty &&
-               this["FavoriteProp"] == string.Empty &&
-               this["JobProp"] == string.Empty 
-
-          );
+         () => CanContactBeAdded());
 
         public AddContactVM(IStorage storage)
         {
             this.storage = storage;
+        }
+        public bool CanContactBeAdded()
+        {
+           if(
+               this["FirstNameProp"] == string.Empty &&
+               this["LastNameProp"] == string.Empty &&
+               this["PhoneNumberProp"] == string.Empty &&
+               this["EmailAdressProp"] == string.Empty &&
+               this["JobProp"] == string.Empty)
+            {
+                return true;
+            }
+            return false;
         }
         public void Add()
         {

@@ -1,4 +1,6 @@
-﻿using MainApp.ViewModels;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MainApp.Messengers;
+using MainApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +24,9 @@ namespace MainApp.Views
         public ContactDetailsUC()
         {
             InitializeComponent();
+            //ListBox1.SelectedItem = Background.;
         }
+
+
     }
 }

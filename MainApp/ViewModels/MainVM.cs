@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using MainApp.Messengers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,6 +18,7 @@ namespace MainApp.ViewModels
         private GridLength columnWidth;
         private bool isCheckedHamgurber;
 
+        public IMessenger Messenger { get; set; }
         public ViewModelBase CurrentViewModel { get => currentViewModel; set => Set(ref currentViewModel, value); }
         public int SelectedIndex { get => selectedIndex;
             set
@@ -48,10 +50,12 @@ namespace MainApp.ViewModels
             }
         }
 
-        public MainVM()
+        public MainVM(IMessenger messenger)
         {
-            CurrentViewModel = App.Container.GetInstance<HomePageVM>();
+            Messenger = messenger;
             ColumnWidth = new GridLength(40);
+            CurrentViewModel = App.Container.GetInstance<HomePageVM>();
+            Messenger.Register<IndexMessage>(this, x => { this.SelectedIndex = x.SelectedIndex; });
         }
     }
 }

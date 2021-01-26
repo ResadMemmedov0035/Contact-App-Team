@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MainApp.Views"
+             xmlns:views="clr-namespace:MainApp.Views"
+             xmlns:ViewModel="clr-namespace:MainApp.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="570" d:DesignWidth="875"
@@ -14,29 +16,53 @@
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
              FontFamily="{DynamicResource MaterialDesignFont}">
-           
-             <!--Background="{DynamicResource MaterialDesignDarkBackground}"-->
+
    
+    
+             <!--Background="{DynamicResource MaterialDesignDarkBackground}"-->
+    <!--<UserControl.Resources>
+        <Style x:Key="myLBStyle" TargetType="{x:Type ListBoxItem}">
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                             Color="{StaticResource Accent400}"/>
+                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>-->
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="ListBoxKey">
+            <Border>
+                <StackPanel>
+                     <Image/>
+                    <TextBlock/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="210"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListBox  Background="{StaticResource MaterialDesignToolBarBackground}">
-            <ListBoxItem Background="{StaticResource SecondaryHueMidBrush}" Width="auto">
-                
+        <ListBox SelectedIndex="{Binding SelectedInexs}" x:Name="ListBox1" Background="LightGray">
+                <ListBoxItem Background="{StaticResource PrimaryHueMidBrush}"  Width="auto">
+
                 <StackPanel Orientation="Horizontal">
-                    
+
                     <materialDesign:PackIcon Kind="AccountGroup" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
                         <Run FontSize="35">255</Run>
                     </TextBlock>
                 </StackPanel>
-                
+
             </ListBoxItem>
 
-            <ListBoxItem   Background="{StaticResource PrimaryHueMidBrush}" Width="auto">
+            <ListBoxItem  Background="{StaticResource PrimaryHueMidBrush}"  Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountHeart" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
@@ -45,7 +71,7 @@
                 </StackPanel>
 
             </ListBoxItem>
-            <ListBoxItem  Background="{StaticResource PrimaryHueMidBrush}" Width="auto">
+            <ListBoxItem   Background="{StaticResource PrimaryHueMidBrush}"  Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountMultiplePlus" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
@@ -54,7 +80,7 @@
                 </StackPanel>
             </ListBoxItem>
 
-            <ListBoxItem  Background="{StaticResource PrimaryHueMidBrush}" Width="auto">
+            <ListBoxItem   Background="{StaticResource PrimaryHueMidBrush}" Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountOff" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
@@ -63,8 +89,9 @@
                 </StackPanel>
             </ListBoxItem>
         </ListBox>
-
+        <ListBox Grid.Column="1"/>
     </Grid>
 </UserControl>
 
-         
+<!--Background="{StaticResource SecondaryHueMidBrush}"
+    Background="{StaticResource PrimaryHueDarkBrush}"-->

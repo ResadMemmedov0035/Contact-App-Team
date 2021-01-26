@@ -14,8 +14,28 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{DynamicResource MaterialDesignDarkBackground}"
              FontFamily="{DynamicResource MaterialDesignFont}">
-  
-   
+
+    <!--<UserControl.Resources>
+        <Style TargetType="TextBlock">
+            --><!--<Setter Property="IsEnabled" Value="False"/>--><!--
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Path=(Validation.HasError), ElementName=FirstTextBox}" Value="True"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Validation.HasError" Value="False"/>
+                    --><!--<Setter Property="IsEnabled" Value="True"/>--><!--
+                </MultiDataTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>-->
+    <UserControl.Resources>
+        <Style x:Key="qqq" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="materialDesign:ValidationAssist.UsePopup" Value="False" />
+            <Setter Property="materialDesign:ValidationAssist.PopupPlacement" Value="Center" />
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -25,21 +45,21 @@
         <StackPanel Grid.Column="1">
   
             <TextBlock HorizontalAlignment="Center" 
-             Style="{StaticResource 
+             Style="{StaticResource
                     MaterialDesignButtonTextBlock}" Margin="5">
                      First Name</TextBlock>
-            <TextBox  Margin="0,0,0,8" x:Name="FirstTextBox"  
+            <TextBox materialDesign:ValidationAssist.OnlyShowOnFocus="True"  Margin="0,0,0,8" x:Name="FirstTextBox"  
              
               Text="{Binding FirstNameProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True,NotifyOnValidationError=True}"/>
-
+            <!--<TextBlock FontSize="10" Text="{Binding (Validation.Errors)[0].ErrorContent,ElementName=FirstTextBox}"/>-->
             <TextBlock Style="{StaticResource 
                     MaterialDesignButtonTextBlock}"
                     HorizontalAlignment="Center" Margin="5">
                     Last Name</TextBlock>
-            <TextBox x:Name="SecondTextBox" Margin="0,0,0,8" Text="{Binding LastNameProp,
+            <TextBox  materialDesign:ValidationAssist.OnlyShowOnFocus="True" x:Name="SecondTextBox" Margin="0,0,0,8" Text="{Binding LastNameProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}"/>
@@ -48,7 +68,7 @@
                     MaterialDesignButtonTextBlock}"
                     HorizontalAlignment="Center" Margin="5">
                 Phone Number</TextBlock>
-            <TextBox x:Name="ThirdTextBox"  Margin="0,0,0,8" Text="{Binding PhoneNumberProp,
+            <TextBox  materialDesign:ValidationAssist.OnlyShowOnFocus="True" x:Name="ThirdTextBox"  Margin="0,0,0,8" Text="{Binding PhoneNumberProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}" />
@@ -57,7 +77,7 @@
                     MaterialDesignButtonTextBlock}"
                     HorizontalAlignment="Center" Margin="5">
                 Email Address</TextBlock>
-            <TextBox x:Name="FourthTextBox" Margin="0,0,0,8" Text="{Binding EmailAdressProp,
+            <TextBox  materialDesign:ValidationAssist.OnlyShowOnFocus="True" x:Name="FourthTextBox" Margin="0,0,0,8" Text="{Binding EmailAdressProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}"/>
@@ -66,7 +86,7 @@
                     MaterialDesignButtonTextBlock}"
                     HorizontalAlignment="Center" Margin="5">
                 Job</TextBlock>
-            <TextBox x:Name="FifthTextBox"  Margin="0,0,0,8" Text="{Binding JobProp,
+            <TextBox  materialDesign:ValidationAssist.OnlyShowOnFocus="True" x:Name="FifthTextBox"  Margin="0,0,0,8" Text="{Binding JobProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}"/>
