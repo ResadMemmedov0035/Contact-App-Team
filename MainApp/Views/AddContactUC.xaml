@@ -48,7 +48,7 @@
              Style="{StaticResource
                     MaterialDesignButtonTextBlock}" Margin="5">
                      First Name</TextBlock>
-            <TextBox materialDesign:ValidationAssist.OnlyShowOnFocus="True"  Margin="0,0,0,8" x:Name="FirstTextBox"  
+            <TextBox  materialDesign:ValidationAssist.Background="Black" materialDesign:ValidationAssist.OnlyShowOnFocus="True"  Margin="0,0,0,8" x:Name="FirstTextBox"  
              
               Text="{Binding FirstNameProp,
                 UpdateSourceTrigger=PropertyChanged,

@@ -30,18 +30,49 @@
         </Style>
     </UserControl.Resources>-->
 
+   
+
     <UserControl.Resources>
         <DataTemplate x:Key="ListBoxKey">
-            <Border>
-                <StackPanel>
-                     <Image/>
-                    <TextBlock/>
-                </StackPanel>
-            </Border>
+            <StackPanel>
+
+                <GroupBox
+                        
+                        Header="{Binding FirstName}"
+                        Style="{DynamicResource MaterialDesignGroupBox}"
+                        Margin="10,16,16,16"
+                        Width="350"
+                        Height="200"
+                        materialDesign:ColorZoneAssist.Mode="Accent">
+                        
+                    <StackPanel  Orientation="Horizontal">
+                        <StackPanel>
+                            <Border Margin="5,15" BorderBrush="Black" BorderThickness="0.1">
+                                <Image Source="{Binding PhotoURL}"  Stretch="Fill" Height="120" Width="110"/>
+                                
+                            </Border>
+                        </StackPanel>
+                        <TextBlock Margin="5">
+                            
+                            <TextBlock Margin="0,25,0,0">Phone Number:</TextBlock>
+                            <LineBreak/>                           
+                            <TextBlock Text="{Binding PhoneNumber}"/>
+                            <LineBreak/>
+                            <TextBlock>Job:</TextBlock>
+                            <LineBreak/>
+                            <TextBlock Text="{Binding Job}"/>
+                             <LineBreak/>
+                             <TextBlock>Email Adress:</TextBlock>
+                            <LineBreak/>
+                            <TextBlock Text="{Binding EmailAdress}"/>
+                        </TextBlock>
+
+                    </StackPanel>
+
+                </GroupBox>
+            </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
-
-    
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -49,8 +80,9 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListBox SelectedIndex="{Binding SelectedInexs}" x:Name="ListBox1" Background="LightGray">
-                <ListBoxItem Background="{StaticResource PrimaryHueMidBrush}"  Width="auto">
+        
+        <ListBox SelectedIndex="{Binding SelectedInexs}" x:Name="ListBox1">
+                <ListBoxItem  Width="auto">
 
                 <StackPanel Orientation="Horizontal">
 
@@ -62,7 +94,7 @@
 
             </ListBoxItem>
 
-            <ListBoxItem  Background="{StaticResource PrimaryHueMidBrush}"  Width="auto">
+            <ListBoxItem   Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountHeart" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
@@ -71,7 +103,7 @@
                 </StackPanel>
 
             </ListBoxItem>
-            <ListBoxItem   Background="{StaticResource PrimaryHueMidBrush}"  Width="auto">
+            <ListBoxItem     Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountMultiplePlus" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
@@ -80,7 +112,7 @@
                 </StackPanel>
             </ListBoxItem>
 
-            <ListBoxItem   Background="{StaticResource PrimaryHueMidBrush}" Width="auto">
+            <ListBoxItem   Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountOff" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
@@ -89,7 +121,103 @@
                 </StackPanel>
             </ListBoxItem>
         </ListBox>
-        <ListBox Grid.Column="1"/>
+
+
+
+
+
+
+
+
+
+
+
+        <ListBox Margin="40,0,0,0" ItemTemplate="{StaticResource ListBoxKey}" ItemsSource="{Binding list}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <!--<ListBoxItem>
+                <Border BorderBrush="Black" BorderThickness="1">
+                   
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel>
+                            <TextBlock Margin="28,10,0,10">Aliyew Zero</TextBlock>
+                            <Image Margin="10,0,0,10" Stretch="Fill" Height="100" Width="100" Source="C:\Users\User\Desktop\Pic\cat.png"></Image>
+                        </StackPanel>
+                        <TextBlock Margin="30,49,50,0">
+                            
+                            <TextBlock>Name:</TextBlock>
+                            <LineBreak/>                           
+                            <TextBlock>Allen</TextBlock>
+                            <LineBreak/>
+                            <TextBlock>Surname:</TextBlock>
+                            <LineBreak/>
+                            <TextBlock>Walker</TextBlock>
+                        </TextBlock>
+
+                    </StackPanel>
+                </Border>
+            </ListBoxItem>
+            <ListBoxItem>
+                <Border BorderBrush="Black" BorderThickness="1">
+
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel>
+                            <TextBlock Margin="28,10,0,10">Aliyew Zero</TextBlock>
+                            <Image Margin="10,0,0,10" Stretch="Fill" Height="100" Width="100" Source="C:\Users\User\Desktop\Pic\cat.png"></Image>
+                        </StackPanel>
+                        <TextBlock Margin="30,49,50,0">
+                            
+                            <TextBlock>Name:</TextBlock>
+                            <LineBreak/>                           
+                            <TextBlock>Allen</TextBlock>
+                            <LineBreak/>
+                            <TextBlock>Surname:</TextBlock>
+                            <LineBreak/>
+                            <TextBlock>Walker</TextBlock>
+                        </TextBlock>
+
+                    </StackPanel>
+                </Border>
+            </ListBoxItem>
+
+            <ListBoxItem>
+                    
+                <StackPanel>
+                    
+                    <GroupBox
+                        
+                        Header="Aliyew Zero"
+                        Style="{DynamicResource MaterialDesignGroupBox}"
+                        Margin="16"
+                        materialDesign:ColorZoneAssist.Mode="Accent">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+
+                               <Image Margin="10,0,0,10" Stretch="Fill" Height="100" Width="100" Source="C:\Users\User\Desktop\Pic\cat.png"></Image>
+                            </StackPanel>
+                            <TextBlock Margin="30,20,50,0">
+                            
+                            <TextBlock>Name:</TextBlock>
+                            <LineBreak/>                           
+                            <TextBlock>Allen</TextBlock>
+                            <LineBreak/>
+                            <TextBlock>Surname:</TextBlock>
+                            <LineBreak/>
+                            <TextBlock>Walker</TextBlock>
+                        </TextBlock>
+
+                        </StackPanel>
+
+                    </GroupBox>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem>listbox item 4</ListBoxItem>
+            <ListBoxItem>listbox item 5</ListBoxItem>-->
+        </ListBox>
+     
     </Grid>
 </UserControl>
 
