@@ -80,57 +80,48 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        
+
         <ListBox SelectedIndex="{Binding SelectedInexs}" x:Name="ListBox1">
-                <ListBoxItem  Width="auto">
 
+            <ListBoxItem  BorderBrush="{StaticResource AttentionToActionBrush}" BorderThickness="0.5" Width="auto">
                 <StackPanel Orientation="Horizontal">
-
-                    <materialDesign:PackIcon Kind="AccountGroup" Height="100" Width="100"/>
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
-                        <Run FontSize="35">255</Run>
-                    </TextBlock>
-                </StackPanel>
+                        <materialDesign:PackIcon  Kind="AccountGroup" Height="100" Width="100"/>
+                      <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
+                          <TextBlock FontSize="32" Text="{Binding NumberCount}"/>
+                      </TextBlock>
+                  </StackPanel>
+                
 
             </ListBoxItem>
 
-            <ListBoxItem   Width="auto">
+
+            <ListBoxItem  BorderBrush="{StaticResource AttentionToActionBrush}" BorderThickness="0.5"  Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountHeart" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
-                        <Run FontSize="35">255</Run>
+                        <Run FontSize="32">255</Run>
                     </TextBlock>
                 </StackPanel>
 
             </ListBoxItem>
-            <ListBoxItem     Width="auto">
+            <ListBoxItem  BorderBrush="{StaticResource AttentionToActionBrush}" BorderThickness="0.5"   Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountMultiplePlus" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
-                            <Run FontSize="35">255</Run>
+                            <Run FontSize="32">255</Run>
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
 
-            <ListBoxItem   Width="auto">
+            <ListBoxItem  BorderBrush="{StaticResource AttentionToActionBrush}" BorderThickness="0.5"  Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountOff" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
-                            <Run FontSize="35">255</Run>
+                            <Run FontSize="32">255</Run>
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
         </ListBox>
-
-
-
-
-
-
-
-
-
-
 
         <ListBox Margin="40,0,0,0" ItemTemplate="{StaticResource ListBoxKey}" ItemsSource="{Binding list}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1">
             <ListBox.ItemsPanel>
@@ -138,84 +129,7 @@
                     <WrapPanel IsItemsHost="True" />
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
-            <!--<ListBoxItem>
-                <Border BorderBrush="Black" BorderThickness="1">
-                   
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel>
-                            <TextBlock Margin="28,10,0,10">Aliyew Zero</TextBlock>
-                            <Image Margin="10,0,0,10" Stretch="Fill" Height="100" Width="100" Source="C:\Users\User\Desktop\Pic\cat.png"></Image>
-                        </StackPanel>
-                        <TextBlock Margin="30,49,50,0">
-                            
-                            <TextBlock>Name:</TextBlock>
-                            <LineBreak/>                           
-                            <TextBlock>Allen</TextBlock>
-                            <LineBreak/>
-                            <TextBlock>Surname:</TextBlock>
-                            <LineBreak/>
-                            <TextBlock>Walker</TextBlock>
-                        </TextBlock>
-
-                    </StackPanel>
-                </Border>
-            </ListBoxItem>
-            <ListBoxItem>
-                <Border BorderBrush="Black" BorderThickness="1">
-
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel>
-                            <TextBlock Margin="28,10,0,10">Aliyew Zero</TextBlock>
-                            <Image Margin="10,0,0,10" Stretch="Fill" Height="100" Width="100" Source="C:\Users\User\Desktop\Pic\cat.png"></Image>
-                        </StackPanel>
-                        <TextBlock Margin="30,49,50,0">
-                            
-                            <TextBlock>Name:</TextBlock>
-                            <LineBreak/>                           
-                            <TextBlock>Allen</TextBlock>
-                            <LineBreak/>
-                            <TextBlock>Surname:</TextBlock>
-                            <LineBreak/>
-                            <TextBlock>Walker</TextBlock>
-                        </TextBlock>
-
-                    </StackPanel>
-                </Border>
-            </ListBoxItem>
-
-            <ListBoxItem>
-                    
-                <StackPanel>
-                    
-                    <GroupBox
-                        
-                        Header="Aliyew Zero"
-                        Style="{DynamicResource MaterialDesignGroupBox}"
-                        Margin="16"
-                        materialDesign:ColorZoneAssist.Mode="Accent">
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel>
-
-                               <Image Margin="10,0,0,10" Stretch="Fill" Height="100" Width="100" Source="C:\Users\User\Desktop\Pic\cat.png"></Image>
-                            </StackPanel>
-                            <TextBlock Margin="30,20,50,0">
-                            
-                            <TextBlock>Name:</TextBlock>
-                            <LineBreak/>                           
-                            <TextBlock>Allen</TextBlock>
-                            <LineBreak/>
-                            <TextBlock>Surname:</TextBlock>
-                            <LineBreak/>
-                            <TextBlock>Walker</TextBlock>
-                        </TextBlock>
-
-                        </StackPanel>
-
-                    </GroupBox>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem>listbox item 4</ListBoxItem>
-            <ListBoxItem>listbox item 5</ListBoxItem>-->
+           
         </ListBox>
      
     </Grid>

@@ -44,9 +44,9 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
   
-            <TextBlock HorizontalAlignment="Center" 
+            <TextBlock Margin="0,100,0,20" HorizontalAlignment="Center" 
              Style="{StaticResource
-                    MaterialDesignButtonTextBlock}" Margin="5">
+                    MaterialDesignButtonTextBlock}">
                      First Name</TextBlock>
             <TextBox  materialDesign:ValidationAssist.Background="Black" materialDesign:ValidationAssist.OnlyShowOnFocus="True"  Margin="0,0,0,8" x:Name="FirstTextBox"  
              
@@ -55,9 +55,9 @@
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True,NotifyOnValidationError=True}"/>
             <!--<TextBlock FontSize="10" Text="{Binding (Validation.Errors)[0].ErrorContent,ElementName=FirstTextBox}"/>-->
-            <TextBlock Style="{StaticResource 
+            <TextBlock  Margin="0,30,0,20"  Style="{StaticResource 
                     MaterialDesignButtonTextBlock}"
-                    HorizontalAlignment="Center" Margin="5">
+                    HorizontalAlignment="Center">
                     Last Name</TextBlock>
             <TextBox  materialDesign:ValidationAssist.OnlyShowOnFocus="True" x:Name="SecondTextBox" Margin="0,0,0,8" Text="{Binding LastNameProp,
                 UpdateSourceTrigger=PropertyChanged,
@@ -66,7 +66,7 @@
         
             <TextBlock Style="{StaticResource 
                     MaterialDesignButtonTextBlock}"
-                    HorizontalAlignment="Center" Margin="5">
+                    HorizontalAlignment="Center"  Margin="0,20,0,20">
                 Phone Number</TextBlock>
             <TextBox  materialDesign:ValidationAssist.OnlyShowOnFocus="True" x:Name="ThirdTextBox"  Margin="0,0,0,8" Text="{Binding PhoneNumberProp,
                 UpdateSourceTrigger=PropertyChanged,
@@ -75,7 +75,7 @@
 
             <TextBlock Style="{StaticResource 
                     MaterialDesignButtonTextBlock}"
-                    HorizontalAlignment="Center" Margin="5">
+                    HorizontalAlignment="Center"  Margin="0,20,0,20">
                 Email Address</TextBlock>
             <TextBox  materialDesign:ValidationAssist.OnlyShowOnFocus="True" x:Name="FourthTextBox" Margin="0,0,0,8" Text="{Binding EmailAdressProp,
                 UpdateSourceTrigger=PropertyChanged,
@@ -84,7 +84,7 @@
 
             <TextBlock Style="{StaticResource 
                     MaterialDesignButtonTextBlock}"
-                    HorizontalAlignment="Center" Margin="5">
+                    HorizontalAlignment="Center"  Margin="0,20,0,20">
                 Job</TextBlock>
             <TextBox  materialDesign:ValidationAssist.OnlyShowOnFocus="True" x:Name="FifthTextBox"  Margin="0,0,0,8" Text="{Binding JobProp,
                 UpdateSourceTrigger=PropertyChanged,
@@ -93,7 +93,7 @@
 
             <TextBlock Style="{StaticResource 
                     MaterialDesignButtonTextBlock}"
-                    HorizontalAlignment="Center" Margin="5">Photo Url</TextBlock>
+                    HorizontalAlignment="Center" Margin="0,20,0,20">Photo Url</TextBlock>
             <TextBox Margin="0,0,0,8" Text="{Binding PhotoProp}" />
 
 
@@ -114,7 +114,7 @@
                           IsChecked="{Binding FavoriteProp}"/>
                 
                 <TextBlock Margin="140,0,3,10">No</TextBlock>
-                <CheckBox Margin="0,0,0,10"
+                <CheckBox Margin="0,0,0,30"
                           Style="{StaticResource 
                           MaterialDesignAccentCheckBox}"  
                           IsChecked="{Binding UnFavoriteProp}"/>

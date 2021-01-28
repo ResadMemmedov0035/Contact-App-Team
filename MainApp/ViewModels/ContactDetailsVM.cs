@@ -13,7 +13,7 @@ namespace MainApp.ViewModels
 {
     class ContactDetailsVM : ViewModelBase
     {
-        private int numberCount = AddContactVM.Count;
+        private int numberCount;// = AddContactVM.Count;
         private int selectedInex;
 
         public ObservableCollection<Contact> list { get; set; }
@@ -49,11 +49,12 @@ namespace MainApp.ViewModels
             Messenger = messenger;
             Storage = storage;
             list = storage.GetAll();
+            IncreaseCount();
         }
 
         public void IncreaseCount()
         {
-            NumberCount++;
+           NumberCount =  list.Count;
         }
     }
 }
