@@ -68,7 +68,7 @@
                     MaterialDesignButtonTextBlock}"
                     HorizontalAlignment="Center" Margin="5">
                 Phone Number</TextBlock>
-            <TextBox  materialDesign:ValidationAssist.OnlyShowOnFocus="True" x:Name="ThirdTextBox"  Margin="0,0,0,8" Text="{Binding PhoneNumberProp,
+            <TextBox materialDesign:ValidationAssist.Suppress="True" materialDesign:ValidationAssist.OnlyShowOnFocus="True" x:Name="ThirdTextBox"  Margin="0,0,0,8" Text="{Binding PhoneNumberProp,
                 UpdateSourceTrigger=PropertyChanged,
                 ValidatesOnDataErrors=True,
                 ValidatesOnNotifyDataErrors=True}" />
