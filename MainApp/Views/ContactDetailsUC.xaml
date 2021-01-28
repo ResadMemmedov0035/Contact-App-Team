@@ -30,18 +30,49 @@
         </Style>
     </UserControl.Resources>-->
 
+   
+
     <UserControl.Resources>
         <DataTemplate x:Key="ListBoxKey">
-            <Border>
-                <StackPanel>
-                     <Image/>
-                    <TextBlock/>
-                </StackPanel>
-            </Border>
+            <StackPanel>
+
+                <GroupBox
+                        
+                        Header="{Binding FirstName}"
+                        Style="{DynamicResource MaterialDesignGroupBox}"
+                        Margin="10,16,16,16"
+                        Width="350"
+                        Height="200"
+                        materialDesign:ColorZoneAssist.Mode="Accent">
+                        
+                    <StackPanel  Orientation="Horizontal">
+                        <StackPanel>
+                            <Border Margin="5,15" BorderBrush="Black" BorderThickness="0.1">
+                                <Image Source="{Binding PhotoURL}"  Stretch="Fill" Height="120" Width="110"/>
+                                
+                            </Border>
+                        </StackPanel>
+                        <TextBlock Margin="5">
+                            
+                            <TextBlock Margin="0,25,0,0">Phone Number:</TextBlock>
+                            <LineBreak/>                           
+                            <TextBlock Text="{Binding PhoneNumber}"/>
+                            <LineBreak/>
+                            <TextBlock>Job:</TextBlock>
+                            <LineBreak/>
+                            <TextBlock Text="{Binding Job}"/>
+                             <LineBreak/>
+                             <TextBlock>Email Adress:</TextBlock>
+                            <LineBreak/>
+                            <TextBlock Text="{Binding EmailAdress}"/>
+                        </TextBlock>
+
+                    </StackPanel>
+
+                </GroupBox>
+            </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
-
-    
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -49,47 +80,58 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListBox SelectedIndex="{Binding SelectedInexs}" x:Name="ListBox1" Background="LightGray">
-                <ListBoxItem Background="{StaticResource PrimaryHueMidBrush}"  Width="auto">
 
+        <ListBox SelectedIndex="{Binding SelectedInexs}" x:Name="ListBox1">
+
+            <ListBoxItem  BorderBrush="{StaticResource AttentionToActionBrush}" BorderThickness="0.5" Width="auto">
                 <StackPanel Orientation="Horizontal">
-
-                    <materialDesign:PackIcon Kind="AccountGroup" Height="100" Width="100"/>
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
-                        <Run FontSize="35">255</Run>
-                    </TextBlock>
-                </StackPanel>
+                        <materialDesign:PackIcon  Kind="AccountGroup" Height="100" Width="100"/>
+                      <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
+                          <TextBlock FontSize="32" Text="{Binding NumberCount}"/>
+                      </TextBlock>
+                  </StackPanel>
+                
 
             </ListBoxItem>
 
-            <ListBoxItem  Background="{StaticResource PrimaryHueMidBrush}"  Width="auto">
+
+            <ListBoxItem  BorderBrush="{StaticResource AttentionToActionBrush}" BorderThickness="0.5"  Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountHeart" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
-                        <Run FontSize="35">255</Run>
+                        <Run FontSize="32">255</Run>
                     </TextBlock>
                 </StackPanel>
 
             </ListBoxItem>
-            <ListBoxItem   Background="{StaticResource PrimaryHueMidBrush}"  Width="auto">
+            <ListBoxItem  BorderBrush="{StaticResource AttentionToActionBrush}" BorderThickness="0.5"   Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountMultiplePlus" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
-                            <Run FontSize="35">255</Run>
+                            <Run FontSize="32">255</Run>
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
 
-            <ListBoxItem   Background="{StaticResource PrimaryHueMidBrush}" Width="auto">
+            <ListBoxItem  BorderBrush="{StaticResource AttentionToActionBrush}" BorderThickness="0.5"  Width="auto">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountOff" Height="100" Width="100"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="35,0,0,70">
-                            <Run FontSize="35">255</Run>
+                            <Run FontSize="32">255</Run>
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
         </ListBox>
-        <ListBox Grid.Column="1"/>
+
+        <ListBox Margin="40,0,0,0" ItemTemplate="{StaticResource ListBoxKey}" ItemsSource="{Binding list}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+           
+        </ListBox>
+     
     </Grid>
 </UserControl>
 

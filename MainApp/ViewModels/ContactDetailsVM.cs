@@ -2,18 +2,22 @@
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using MainApp.Messengers;
+using MainApp.Models;
 using MainApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace MainApp.ViewModels
 {
     class ContactDetailsVM : ViewModelBase
     {
-        private int numberCount = AddContactVM.Count;
+        private int numberCount;// = AddContactVM.Count;
         private int selectedInex;
 
+        public ObservableCollection<Contact> list { get; set; }
+        public IStorage Storage { get; set; }
         public int NumberCount { get => numberCount; set => Set(ref numberCount, value); }
         public IMessenger Messenger { get; set; }
         public int SelectedInexs { get => selectedInex; 
@@ -40,14 +44,17 @@ namespace MainApp.ViewModels
 
         public int FavoriteCount { get; set; }
 
-        public ContactDetailsVM(IMessenger messenger)
+        public ContactDetailsVM(IMessenger messenger,IStorage storage)
         {
             Messenger = messenger;
+            Storage = storage;
+            list = storage.GetAll();
+            IncreaseCount();
         }
 
         public void IncreaseCount()
         {
-            NumberCount++;
+           NumberCount =  list.Count;
         }
     }
 }
