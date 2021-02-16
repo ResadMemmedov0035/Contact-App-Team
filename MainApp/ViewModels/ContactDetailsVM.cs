@@ -20,7 +20,7 @@ namespace MainApp.ViewModels
         public IStorage Storage { get; set; }
         public int NumberCount { get => numberCount; set => Set(ref numberCount, value); }
         public IMessenger Messenger { get; set; }
-        public int SelectedInexs { get => selectedInex; 
+        public int SelectedInexs { get => selectedInex;
             set 
             {
                 selectedInex = value;
