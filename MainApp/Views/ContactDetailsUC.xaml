@@ -48,7 +48,7 @@
                     <StackPanel  Orientation="Horizontal">
                         <StackPanel>
                             <Border Margin="5,15" BorderBrush="Black" BorderThickness="0.1">
-                                <Image Source="{Binding PhotoURL}"  Stretch="Fill" Height="120" Width="110"/>
+                                <!--<Image Source="{Binding PhotoURL}"  Stretch="Fill" Height="120" Width="110"/>-->
                                 
                             </Border>
                         </StackPanel>

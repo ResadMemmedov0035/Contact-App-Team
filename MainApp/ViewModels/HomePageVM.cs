@@ -35,11 +35,10 @@ namespace MainApp.ViewModels
 
         private void DynamicSearch()
         {
-            Contacts = Storage.GetAll();
 
             if (!string.IsNullOrWhiteSpace(Search))
             {
-                Contacts = Contacts.Where(x =>
+                Contacts = Storage.GetAll().Where(x =>
                 {
                     return
                     x.FirstName.Contains(Search) ||
@@ -48,7 +47,9 @@ namespace MainApp.ViewModels
                     x.Job.Contains(Search) ||
                     x.EmailAdress.Contains(Search);
                 }).ToList();
+
             }
+            else Contacts = Storage.GetAll();
         }
     }
 }
