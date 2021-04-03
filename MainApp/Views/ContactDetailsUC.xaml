@@ -123,7 +123,7 @@
             </ListBoxItem>
         </ListBox>
 
-        <ListBox Margin="40,0,0,0" ItemTemplate="{StaticResource ListBoxKey}" ItemsSource="{Binding list}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1">
+        <ListBox ScrollViewer.CanContentScroll="False" Margin="40,0,0,0" ItemTemplate="{StaticResource ListBoxKey}" ItemsSource="{Binding list}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel IsItemsHost="True" />

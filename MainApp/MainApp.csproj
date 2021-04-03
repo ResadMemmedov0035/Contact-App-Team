@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="employee_pic\**" />
+    <EmbeddedResource Remove="employee_pic\**" />
+    <None Remove="employee_pic\**" />
+    <Page Remove="employee_pic\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="contact-icon.png" />
   </ItemGroup>
 
