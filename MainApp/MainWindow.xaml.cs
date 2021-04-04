@@ -23,5 +23,10 @@ namespace MainApp
             InitializeComponent();
             DataContext = App.Container.GetInstance<MainVM>();
         }
+        protected override void OnClosed(EventArgs e)
+        {
+            App.Current.Shutdown();
+            base.OnClosed(e);
+        }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using MainApp.Messengers;
+using MainApp.Models;
 using MainApp.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,10 +25,16 @@ namespace MainApp.Views
     {
         public ContactDetailsUC()
         {
+            ItemSourceMessage.action = RefreshItem;      
             InitializeComponent();
-            //ListBox1.SelectedItem = Background.;
         }
-
-
+         
+        public void RefreshItem()
+        {
+            Dispatcher.Invoke(() =>
+            {
+                ListBox2.Items.Refresh();
+            });
+        }
     }
 }

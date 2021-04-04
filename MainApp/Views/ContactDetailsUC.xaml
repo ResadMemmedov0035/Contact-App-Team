@@ -48,8 +48,8 @@
                     <StackPanel  Orientation="Horizontal">
                         <StackPanel>
                             <Border Margin="5,15" BorderBrush="Black" BorderThickness="0.1">
-                                <!--<Image Source="{Binding PhotoURL}"  Stretch="Fill" Height="120" Width="110"/>-->
-                                
+                                <Image Source="{Binding PhotoURL}"  Stretch="Fill" Height="120" Width="110"/>
+
                             </Border>
                         </StackPanel>
                         <TextBlock Margin="5">
@@ -123,7 +123,11 @@
             </ListBoxItem>
         </ListBox>
 
-        <ListBox ScrollViewer.CanContentScroll="False" Margin="40,0,0,0" ItemTemplate="{StaticResource ListBoxKey}" ItemsSource="{Binding list}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1">
+        <ListBox ScrollViewer.CanContentScroll="False" Margin="40,0,0,0"
+                 ItemTemplate="{StaticResource ListBoxKey}"
+                 ItemsSource="{Binding list}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1"
+                 x:Name="ListBox2">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel IsItemsHost="True" />

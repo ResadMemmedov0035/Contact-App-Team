@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:MainApp.ViewModels"
         mc:Ignorable="d" Icon="contact-icon.png"
         Title="Contact App" MinHeight="800" MinWidth="800" Width="860"
-        
+        WindowState="Maximized"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"

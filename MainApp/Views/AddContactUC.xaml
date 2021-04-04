@@ -10,9 +10,9 @@
              TextElement.FontWeight="Regular"
              TextElement.FontSize="13"
              Foreground="Wheat"
+             Background="Teal"
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
-             Background="{DynamicResource MaterialDesignDarkBackground}"
              FontFamily="{DynamicResource MaterialDesignFont}">
 
     <!--<UserControl.Resources>

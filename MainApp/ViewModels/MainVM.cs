@@ -5,6 +5,7 @@ using MainApp.Messengers;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -17,7 +18,6 @@ namespace MainApp.ViewModels
         private int selectedIndex = 0;
         private GridLength columnWidth;
         private bool isCheckedHamgurber;
-
         public IMessenger Messenger { get; set; }
         public ViewModelBase CurrentViewModel { get => currentViewModel; set => Set(ref currentViewModel, value); }
         public int SelectedIndex { get => selectedIndex;
@@ -26,11 +26,24 @@ namespace MainApp.ViewModels
                 Set(ref selectedIndex, value);
 
                 if (selectedIndex == 0)
+                {
+                    ContactDetailsVM.Deactivate();
                     CurrentViewModel = App.Container.GetInstance<HomePageVM>();
+                }
                 if (selectedIndex == 1)
+                {
+                    ContactDetailsVM.Deactivate();
                     CurrentViewModel = App.Container.GetInstance<AddContactVM>();
+                }
                 if (selectedIndex == 2)
+                {
                     CurrentViewModel = App.Container.GetInstance<ContactDetailsVM>();
+
+                    Task.Run(() =>
+                    {
+                       (CurrentViewModel as ContactDetailsVM).Activate();
+                    });
+                }
             }
         }
         public GridLength ColumnWidth 
@@ -56,6 +69,7 @@ namespace MainApp.ViewModels
             ColumnWidth = new GridLength(40);
             CurrentViewModel = App.Container.GetInstance<HomePageVM>();
             Messenger.Register<IndexMessage>(this, x => { this.SelectedIndex = x.SelectedIndex; });
+            SelectedIndex = 2;
         }
     }
 }
