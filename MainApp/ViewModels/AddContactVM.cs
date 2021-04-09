@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Windows;
 
 namespace MainApp.ViewModels
 {
@@ -141,6 +142,11 @@ namespace MainApp.ViewModels
                 Job = JobProp,
                 Favorite = FavoriteProp
             });
+
+            MessageBox.Show("Contact has been added", "Contact App",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Information);
+
             App.Container.GetInstance<ContactDetailsVM>().IncreaseCount();
         }
 
